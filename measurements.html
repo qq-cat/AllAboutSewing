@@ -379,144 +379,292 @@
     <!-- Diagram + legend -->
     <div class="section">
       <h3>Measurement Points at a Glance</h3>
-      <div class="diagram-layout">
+      <p style="font-family:sans-serif;font-size:0.88rem;color:#888;margin-bottom:24px;">Numbers correspond to the measurement table below.</p>
 
-        <!-- SVG body diagram -->
-        <svg width="220" height="460" viewBox="0 0 220 460" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Body silhouette -->
-          <ellipse cx="110" cy="44" rx="28" ry="32" fill="#e8e4de"/>
-          <!-- Neck -->
-          <rect x="101" y="72" width="18" height="14" rx="4" fill="#e8e4de"/>
-          <!-- Torso -->
-          <path d="M68 86 Q60 100 58 130 Q54 165 60 190 Q66 210 70 230 L150 230 Q154 210 160 190 Q166 165 162 130 Q160 100 152 86 Q130 78 110 78 Q90 78 68 86Z" fill="#e8e4de"/>
-          <!-- Hips -->
-          <path d="M70 230 Q60 250 58 270 Q56 290 62 300 L158 300 Q164 290 162 270 Q160 250 150 230Z" fill="#d8d4ce"/>
-          <!-- Legs -->
-          <rect x="70" y="298" width="34" height="140" rx="10" fill="#d8d4ce"/>
-          <rect x="116" y="298" width="34" height="140" rx="10" fill="#d8d4ce"/>
+      <!-- Front body diagram -->
+      <div style="margin-bottom:32px;">
+        <p style="font-family:sans-serif;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.08em;color:#aaa;margin-bottom:12px;">Front view</p>
+        <div class="diagram-layout">
+          <svg width="260" height="520" viewBox="0 0 260 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Head -->
+            <ellipse cx="130" cy="40" rx="26" ry="30" fill="#e8e4de"/>
+            <!-- Neck -->
+            <rect x="122" y="67" width="16" height="13" rx="3" fill="#e8e4de"/>
+            <!-- Torso -->
+            <path d="M88 80 Q78 96 76 128 Q72 162 78 188 Q84 208 88 228 L172 228 Q176 208 182 188 Q188 162 184 128 Q182 96 172 80 Q150 72 130 72 Q110 72 88 80Z" fill="#e8e4de"/>
+            <!-- Arms -->
+            <path d="M88 82 Q70 90 62 120 Q58 140 62 160 L76 152 Q74 132 78 112 Q82 96 90 88Z" fill="#d8d4ce"/>
+            <path d="M172 82 Q190 90 198 120 Q202 140 198 160 L184 152 Q186 132 182 112 Q178 96 170 88Z" fill="#d8d4ce"/>
+            <!-- Hips -->
+            <path d="M88 228 Q76 248 74 268 Q72 288 78 300 L182 300 Q188 288 186 268 Q184 248 172 228Z" fill="#d8d4ce"/>
+            <!-- Legs -->
+            <rect x="82" y="298" width="36" height="150" rx="10" fill="#d8d4ce"/>
+            <rect x="142" y="298" width="36" height="150" rx="10" fill="#d8d4ce"/>
 
-          <!-- Measurement lines -->
-          <!-- 1. Bust -->
-          <line x1="48" y1="118" x2="172" y2="118" stroke="#c9a96e" stroke-width="1.5" stroke-dasharray="4,3"/>
-          <circle cx="42" cy="118" r="10" fill="#c9a96e"/>
-          <text x="42" y="122" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="sans-serif">1</text>
+            <!-- A: Bust circumference -->
+            <line x1="60" y1="116" x2="200" y2="116" stroke="#c9a96e" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <circle cx="54" cy="116" r="9" fill="#c9a96e"/>
+            <text x="54" y="120" text-anchor="middle" fill="white" font-size="9" font-weight="bold" font-family="sans-serif">A</text>
 
-          <!-- 2. Waist -->
-          <line x1="52" y1="160" x2="168" y2="160" stroke="#c9a96e" stroke-width="1.5" stroke-dasharray="4,3"/>
-          <circle cx="46" cy="160" r="10" fill="#c9a96e"/>
-          <text x="46" y="164" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="sans-serif">2</text>
+            <!-- B: Waist circumference -->
+            <line x1="66" y1="158" x2="194" y2="158" stroke="#c9a96e" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <circle cx="60" cy="158" r="9" fill="#c9a96e"/>
+            <text x="60" y="162" text-anchor="middle" fill="white" font-size="9" font-weight="bold" font-family="sans-serif">B</text>
 
-          <!-- 3. Hip -->
-          <line x1="48" y1="210" x2="172" y2="210" stroke="#c9a96e" stroke-width="1.5" stroke-dasharray="4,3"/>
-          <circle cx="42" cy="210" r="10" fill="#c9a96e"/>
-          <text x="42" y="214" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="sans-serif">3</text>
+            <!-- C: Abdomen circumference -->
+            <line x1="62" y1="192" x2="198" y2="192" stroke="#c9a96e" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <circle cx="56" cy="192" r="9" fill="#c9a96e"/>
+            <text x="56" y="196" text-anchor="middle" fill="white" font-size="9" font-weight="bold" font-family="sans-serif">C</text>
 
-          <!-- 4. Shoulder width -->
-          <line x1="68" y1="90" x2="152" y2="90" stroke="#c9a96e" stroke-width="1.5" stroke-dasharray="4,3"/>
-          <circle cx="178" cy="90" r="10" fill="#c9a96e"/>
-          <text x="178" y="94" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="sans-serif">4</text>
+            <!-- D: Hip circumference -->
+            <line x1="58" y1="228" x2="202" y2="228" stroke="#c9a96e" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <circle cx="206" cy="228" r="9" fill="#c9a96e"/>
+            <text x="206" y="232" text-anchor="middle" fill="white" font-size="9" font-weight="bold" font-family="sans-serif">D</text>
 
-          <!-- 5. Back length -->
-          <line x1="164" y1="90" x2="164" y2="230" stroke="#c9a96e" stroke-width="1.5" stroke-dasharray="4,3"/>
-          <circle cx="178" cy="160" r="10" fill="#c9a96e"/>
-          <text x="178" y="164" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="sans-serif">5</text>
+            <!-- E: Shoulder width -->
+            <line x1="88" y1="86" x2="172" y2="86" stroke="#c9a96e" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <circle cx="206" cy="86" r="9" fill="#c9a96e"/>
+            <text x="206" y="90" text-anchor="middle" fill="white" font-size="9" font-weight="bold" font-family="sans-serif">E</text>
 
-          <!-- 6. Inseam -->
-          <line x1="87" y1="298" x2="87" y2="438" stroke="#c9a96e" stroke-width="1.5" stroke-dasharray="4,3"/>
-          <circle cx="42" cy="370" r="10" fill="#c9a96e"/>
-          <text x="42" y="374" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="sans-serif">6</text>
+            <!-- F: Front width -->
+            <line x1="96" y1="100" x2="164" y2="100" stroke="#c9a96e" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <circle cx="206" cy="100" r="9" fill="#c9a96e"/>
+            <text x="206" y="104" text-anchor="middle" fill="white" font-size="9" font-weight="bold" font-family="sans-serif">F</text>
 
-          <!-- 7. Neck -->
-          <ellipse cx="110" cy="80" rx="16" ry="6" stroke="#c9a96e" stroke-width="1.5" stroke-dasharray="4,3" fill="none"/>
-          <circle cx="178" cy="80" r="10" fill="#c9a96e"/>
-          <text x="178" y="84" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="sans-serif">7</text>
-        </svg>
+            <!-- G: Breast distance -->
+            <line x1="115" y1="116" x2="145" y2="116" stroke="#fff" stroke-width="2"/>
+            <circle cx="54" cy="130" r="9" fill="#c9a96e"/>
+            <text x="54" y="134" text-anchor="middle" fill="white" font-size="9" font-weight="bold" font-family="sans-serif">G</text>
+            <line x1="62" y1="130" x2="115" y2="118" stroke="#c9a96e" stroke-width="1" stroke-dasharray="3,2"/>
 
-        <!-- Legend -->
-        <div class="legend">
-          <div class="legend-item"><div class="legend-dot">1</div> <span><strong>Bust</strong> — fullest part of the chest</span></div>
-          <div class="legend-item"><div class="legend-dot">2</div> <span><strong>Waist</strong> — narrowest part of the torso</span></div>
-          <div class="legend-item"><div class="legend-dot">3</div> <span><strong>Hip</strong> — fullest part of the hips, ~20cm below waist</span></div>
-          <div class="legend-item"><div class="legend-dot">4</div> <span><strong>Shoulder width</strong> — across the back, shoulder to shoulder</span></div>
-          <div class="legend-item"><div class="legend-dot">5</div> <span><strong>Back length</strong> — nape of neck to natural waist</span></div>
-          <div class="legend-item"><div class="legend-dot">6</div> <span><strong>Inseam</strong> — crotch to floor</span></div>
-          <div class="legend-item"><div class="legend-dot">7</div> <span><strong>Neck</strong> — circumference around the base of the neck</span></div>
+            <!-- H: Breast length (vertical) -->
+            <line x1="210" y1="80" x2="210" y2="116" stroke="#c9a96e" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <circle cx="224" cy="98" r="9" fill="#c9a96e"/>
+            <text x="224" y="102" text-anchor="middle" fill="white" font-size="9" font-weight="bold" font-family="sans-serif">H</text>
+
+            <!-- I: Waist length (vertical) -->
+            <line x1="36" y1="80" x2="36" y2="158" stroke="#c9a96e" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <circle cx="22" cy="119" r="9" fill="#c9a96e"/>
+            <text x="22" y="123" text-anchor="middle" fill="white" font-size="9" font-weight="bold" font-family="sans-serif">I</text>
+
+            <!-- J: Hip length (vertical) -->
+            <line x1="36" y1="80" x2="36" y2="228" stroke="#c9a96e" stroke-width="0.5" stroke-dasharray="2,2" opacity="0.4"/>
+            <circle cx="22" cy="168" r="9" fill="#c9a96e"/>
+            <text x="22" y="172" text-anchor="middle" fill="white" font-size="9" font-weight="bold" font-family="sans-serif">J</text>
+
+            <!-- K: Sleeve length -->
+            <line x1="62" y1="120" x2="62" y2="160" stroke="#c9a96e" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <circle cx="48" cy="140" r="9" fill="#c9a96e"/>
+            <text x="48" y="144" text-anchor="middle" fill="white" font-size="9" font-weight="bold" font-family="sans-serif">K</text>
+
+            <!-- L: Inseam -->
+            <line x1="100" y1="298" x2="100" y2="448" stroke="#c9a96e" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <circle cx="54" cy="373" r="9" fill="#c9a96e"/>
+            <text x="54" y="377" text-anchor="middle" fill="white" font-size="9" font-weight="bold" font-family="sans-serif">L</text>
+
+            <!-- M: Outseam -->
+            <line x1="210" y1="158" x2="210" y2="448" stroke="#c9a96e" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <circle cx="224" cy="303" r="9" fill="#c9a96e"/>
+            <text x="224" y="307" text-anchor="middle" fill="white" font-size="9" font-weight="bold" font-family="sans-serif">M</text>
+          </svg>
+
+          <div class="legend">
+            <div style="font-family:sans-serif;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:#aaa;margin-bottom:8px;">Circumferences 圍</div>
+            <div class="legend-item"><div class="legend-dot">A</div><span><strong>胸圍 Bust</strong> — fullest part of chest, parallel to floor</span></div>
+            <div class="legend-item"><div class="legend-dot">B</div><span><strong>腰圍 Waist</strong> — narrowest part of torso</span></div>
+            <div class="legend-item"><div class="legend-dot">C</div><span><strong>腹圍 Abdomen</strong> — below belly button, between waist & hip</span></div>
+            <div class="legend-item"><div class="legend-dot">D</div><span><strong>坐圍 Hip</strong> — fullest part of hips & seat</span></div>
+            <div style="font-family:sans-serif;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:#aaa;margin:12px 0 8px;">Widths 寬</div>
+            <div class="legend-item"><div class="legend-dot">E</div><span><strong>肩寬 Shoulder</strong> — point to point across back</span></div>
+            <div class="legend-item"><div class="legend-dot">F</div><span><strong>前寬 Front</strong> — across front chest, armhole to armhole</span></div>
+            <div class="legend-item"><div class="legend-dot">G</div><span><strong>乳寬 Breast Distance</strong> — nipple to nipple</span></div>
+            <div style="font-family:sans-serif;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:#aaa;margin:12px 0 8px;">Lengths 直</div>
+            <div class="legend-item"><div class="legend-dot">H</div><span><strong>胸高 Breast Length</strong> — shoulder to bust point</span></div>
+            <div class="legend-item"><div class="legend-dot">I</div><span><strong>腰長 Waist Length</strong> — shoulder to natural waist</span></div>
+            <div class="legend-item"><div class="legend-dot">J</div><span><strong>臀長 Hip Length</strong> — shoulder to fullest hip</span></div>
+            <div style="font-family:sans-serif;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:#aaa;margin:12px 0 8px;">Sleeve & Leg 袖/褲</div>
+            <div class="legend-item"><div class="legend-dot">K</div><span><strong>袖長 Sleeve Length</strong> — shoulder to wrist</span></div>
+            <div class="legend-item"><div class="legend-dot">L</div><span><strong>袴長 Inseam</strong> — crotch to floor</span></div>
+            <div class="legend-item"><div class="legend-dot">M</div><span><strong>祆長 Outseam</strong> — waist to floor, outer leg</span></div>
+          </div>
         </div>
+      </div>
+
+      <!-- Combined how-to reference table -->
+      <div style="margin-top:32px;">
+        <p style="font-family:sans-serif;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.08em;color:#aaa;margin-bottom:12px;">How to take each measurement</p>
+        <table>
+          <thead>
+            <tr>
+              <th style="width:36px;">Ref</th>
+              <th style="width:110px;">中文 / English</th>
+              <th>How to measure</th>
+              <th style="width:160px;">Used for</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background:#f7f4ef;"><td colspan="4" style="font-family:sans-serif;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:#aaa;padding:8px 14px;">Circumferences 圍</td></tr>
+            <tr>
+              <td><div class="legend-dot">A</div></td>
+              <td style="font-family:sans-serif;font-size:0.85rem;"><strong>胸圍</strong><br>Bust</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;">Wrap tape around the fullest part of the chest, parallel to the floor. Breathe normally — don't expand or contract.</td>
+              <td style="font-family:sans-serif;font-size:0.82rem;color:#888;">Tops, jackets, dresses</td>
+            </tr>
+            <tr>
+              <td><div class="legend-dot">B</div></td>
+              <td style="font-family:sans-serif;font-size:0.85rem;"><strong>腰圍</strong><br>Waist</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;">Find natural waist by bending side to side — it's the crease that forms. Slightly tighter for skirts/trousers; looser for qipao.</td>
+              <td style="font-family:sans-serif;font-size:0.82rem;color:#888;">All garments</td>
+            </tr>
+            <tr>
+              <td><div class="legend-dot">C</div></td>
+              <td style="font-family:sans-serif;font-size:0.85rem;"><strong>腹圍</strong><br>Abdomen</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;">Measure below the navel, at the fullest point between the waist and hip.</td>
+              <td style="font-family:sans-serif;font-size:0.82rem;color:#888;">Trousers, skirts</td>
+            </tr>
+            <tr>
+              <td><div class="legend-dot">D</div></td>
+              <td style="font-family:sans-serif;font-size:0.85rem;"><strong>坐圍</strong><br>Hip</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;">Stand with feet together. Measure around fullest part of hips and seat (~18–23 cm below natural waist). Leave a little ease.</td>
+              <td style="font-family:sans-serif;font-size:0.82rem;color:#888;">Skirts, trousers, dresses</td>
+            </tr>
+
+            <tr style="background:#f7f4ef;"><td colspan="4" style="font-family:sans-serif;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:#aaa;padding:8px 14px;">Widths 寬</td></tr>
+            <tr>
+              <td><div class="legend-dot">E</div></td>
+              <td style="font-family:sans-serif;font-size:0.85rem;"><strong>肩寬</strong><br>Shoulder</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;">Measure across the back from left shoulder point to right shoulder point (where shoulder seam sits). Best taken with a helper.</td>
+              <td style="font-family:sans-serif;font-size:0.82rem;color:#888;">Tops, jackets, coats</td>
+            </tr>
+            <tr>
+              <td><div class="legend-dot">F</div></td>
+              <td style="font-family:sans-serif;font-size:0.85rem;"><strong>前寬</strong><br>Front</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;">Across the front chest from left underarm to right underarm, measured about 10 cm below the shoulder seam.</td>
+              <td style="font-family:sans-serif;font-size:0.82rem;color:#888;">Bodice, blouses</td>
+            </tr>
+            <tr>
+              <td>—</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;"><strong>後寬</strong><br>Back</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;">Across the back from left underarm to right underarm at the same level as front width.</td>
+              <td style="font-family:sans-serif;font-size:0.82rem;color:#888;">Bodice, jackets</td>
+            </tr>
+            <tr>
+              <td><div class="legend-dot">G</div></td>
+              <td style="font-family:sans-serif;font-size:0.85rem;"><strong>乳寬</strong><br>Breast Distance</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;">Horizontal distance from nipple to nipple (bust span).</td>
+              <td style="font-family:sans-serif;font-size:0.82rem;color:#888;">Dart placement, Clo3D avatar</td>
+            </tr>
+            <tr>
+              <td>—</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;"><strong>腋寬</strong><br>Arm Hole</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;">Measure around the armhole opening — from the front underarm point, over the shoulder, back to underarm.</td>
+              <td style="font-family:sans-serif;font-size:0.82rem;color:#888;">Sleeves, armhole shaping</td>
+            </tr>
+            <tr>
+              <td>—</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;"><strong>領寬 / 領高</strong><br>Collar W / H</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;">Collar width = distance across the collar base. Collar height = how tall the collar stands.</td>
+              <td style="font-family:sans-serif;font-size:0.82rem;color:#888;">Collar construction</td>
+            </tr>
+
+            <tr style="background:#f7f4ef;"><td colspan="4" style="font-family:sans-serif;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:#aaa;padding:8px 14px;">Lengths 直</td></tr>
+            <tr>
+              <td><div class="legend-dot">H</div></td>
+              <td style="font-family:sans-serif;font-size:0.85rem;"><strong>胸高</strong><br>Breast Length</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;">From shoulder (at neckline) straight down to the bust point (nipple level). Measured vertically down the front.</td>
+              <td style="font-family:sans-serif;font-size:0.82rem;color:#888;">Dart placement, bodice</td>
+            </tr>
+            <tr>
+              <td><div class="legend-dot">I</div></td>
+              <td style="font-family:sans-serif;font-size:0.85rem;"><strong>腰長</strong><br>Waist Length</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;">From the most prominent vertebra at the nape of the neck straight down the center back to the natural waist.</td>
+              <td style="font-family:sans-serif;font-size:0.82rem;color:#888;">Bodice blocks, dresses</td>
+            </tr>
+            <tr>
+              <td><div class="legend-dot">J</div></td>
+              <td style="font-family:sans-serif;font-size:0.85rem;"><strong>臀長</strong><br>Hip Length</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;">From shoulder (or nape) down to the fullest hip point. Also recorded as the distance from waist to fullest hip.</td>
+              <td style="font-family:sans-serif;font-size:0.82rem;color:#888;">Skirts, dresses</td>
+            </tr>
+            <tr>
+              <td>—</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;"><strong>衫長</strong><br>Blouse Length</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;">From shoulder seam at neckline down to desired blouse hem.</td>
+              <td style="font-family:sans-serif;font-size:0.82rem;color:#888;">Blouses, tops</td>
+            </tr>
+            <tr>
+              <td>—</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;"><strong>裙長 / 半截裙長</strong><br>Dress / Skirt Length</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;">From shoulder to desired hem for dresses; from waist to desired hem for skirts.</td>
+              <td style="font-family:sans-serif;font-size:0.82rem;color:#888;">Dresses, skirts</td>
+            </tr>
+
+            <tr style="background:#f7f4ef;"><td colspan="4" style="font-family:sans-serif;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:#aaa;padding:8px 14px;">Sleeves 袖</td></tr>
+            <tr>
+              <td><div class="legend-dot">K</div></td>
+              <td style="font-family:sans-serif;font-size:0.85rem;"><strong>袖長</strong><br>Sleeve Length</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;">From shoulder point, over bent elbow, to 1 inch below the wrist bone.</td>
+              <td style="font-family:sans-serif;font-size:0.82rem;color:#888;">Sleeves</td>
+            </tr>
+            <tr>
+              <td>—</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;"><strong>袖山 / 袖大</strong><br>Arm / Sleeve Width</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;">Arm width (袖山) = fullest part of upper arm. Sleeve width (袖大) = desired width at the sleeve cap.</td>
+              <td style="font-family:sans-serif;font-size:0.82rem;color:#888;">Sleeve cap drafting</td>
+            </tr>
+            <tr>
+              <td>—</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;"><strong>袖口</strong><br>Cuff</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;">Circumference of the wrist; add ease for cuff style (tight = +2 cm, loose = +5 cm).</td>
+              <td style="font-family:sans-serif;font-size:0.82rem;color:#888;">Cuffs, sleeve hems</td>
+            </tr>
+
+            <tr style="background:#f7f4ef;"><td colspan="4" style="font-family:sans-serif;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:#aaa;padding:8px 14px;">Pants 褲</td></tr>
+            <tr>
+              <td>—</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;"><strong>祆頭</strong><br>Waist Width</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;">Width of the trouser waistband at center front.</td>
+              <td style="font-family:sans-serif;font-size:0.82rem;color:#888;">Waistband</td>
+            </tr>
+            <tr>
+              <td>—</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;"><strong>比寬</strong><br>Thigh</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;">Circumference of the fullest part of the upper thigh.</td>
+              <td style="font-family:sans-serif;font-size:0.82rem;color:#888;">Trousers</td>
+            </tr>
+            <tr>
+              <td>—</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;"><strong>浪深</strong><br>Crotch</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;">Sit on a hard chair. Measure from side waist down to the seat of the chair.</td>
+              <td style="font-family:sans-serif;font-size:0.82rem;color:#888;">Trousers, shorts</td>
+            </tr>
+            <tr>
+              <td><div class="legend-dot">M</div></td>
+              <td style="font-family:sans-serif;font-size:0.85rem;"><strong>祆長</strong><br>Outseam</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;">From natural waist, down the outer side of the leg to the floor.</td>
+              <td style="font-family:sans-serif;font-size:0.82rem;color:#888;">Trousers, skirts</td>
+            </tr>
+            <tr>
+              <td><div class="legend-dot">L</div></td>
+              <td style="font-family:sans-serif;font-size:0.85rem;"><strong>袴長</strong><br>Inseam</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;">From crotch seam (inner thigh) down to the floor. Easier to measure on a well-fitting pair of trousers.</td>
+              <td style="font-family:sans-serif;font-size:0.82rem;color:#888;">Trousers, jeans</td>
+            </tr>
+            <tr>
+              <td>—</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;"><strong>腳寬</strong><br>Pant Ankle</td>
+              <td style="font-family:sans-serif;font-size:0.85rem;">Desired width of the trouser leg at the ankle hem.</td>
+              <td style="font-family:sans-serif;font-size:0.82rem;color:#888;">Trouser hem</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
-    <!-- Detailed cards -->
-    <div class="section">
-      <h3>How to Take Each Measurement</h3>
-      <div class="measurements-grid">
-
-        <div class="measurement-card">
-          <div class="name"><span class="number">1</span> Bust / Chest</div>
-          <div class="how">Wrap the tape around the fullest part of the chest, keeping it parallel to the floor. Breathe normally — don't expand or contract.</div>
-          <div class="tip">For tops, jackets, and dresses.</div>
-        </div>
-
-        <div class="measurement-card">
-          <div class="name"><span class="number">2</span> Waist</div>
-          <div class="how">Find your natural waist by bending side to side — it's the crease that forms. Measure around that point, keeping the tape comfortably snug.</div>
-          <div class="tip">Typically 2–3 cm above the belly button.</div>
-        </div>
-
-        <div class="measurement-card">
-          <div class="name"><span class="number">3</span> Hip</div>
-          <div class="how">Stand with feet together. Measure around the fullest part of the hips and seat, usually about 18–23 cm below the natural waist.</div>
-          <div class="tip">Note how far below the waist your hip fullness falls — useful for skirt and trouser fitting.</div>
-        </div>
-
-        <div class="measurement-card">
-          <div class="name"><span class="number">4</span> Shoulder Width</div>
-          <div class="how">Measure across the upper back from the point of one shoulder to the other (where the shoulder seam would sit), in a straight line.</div>
-          <div class="tip">Best taken with a helper for accuracy.</div>
-        </div>
-
-        <div class="measurement-card">
-          <div class="name"><span class="number">5</span> Back Length</div>
-          <div class="how">From the most prominent vertebra at the nape of the neck, straight down the center back to the natural waist.</div>
-          <div class="tip">Used for bodice blocks and dress patterns.</div>
-        </div>
-
-        <div class="measurement-card">
-          <div class="name"><span class="number">6</span> Inseam</div>
-          <div class="how">Stand straight. Measure from the crotch seam (inner thigh) down to the floor. Easier with a helper or by measuring a well-fitting pair of trousers.</div>
-          <div class="tip">For trousers and jeans. Note if you want ankle, midi, or full-length.</div>
-        </div>
-
-        <div class="measurement-card">
-          <div class="name"><span class="number">7</span> Neck Circumference</div>
-          <div class="how">Wrap the tape around the base of the neck. Keep one finger between the tape and neck for ease.</div>
-          <div class="tip">Used for collars and necklines.</div>
-        </div>
-
-        <div class="measurement-card">
-          <div class="name">↕ Bust Height</div>
-          <div class="how">From the shoulder (at the neckline) straight down to the bust point (nipple level). Taken vertically down the front of the body.</div>
-          <div class="tip">Used for dart placement in bodice patterns.</div>
-        </div>
-
-        <div class="measurement-card">
-          <div class="name">↔ Bust Span</div>
-          <div class="how">The horizontal distance between the two bust points (nipple to nipple).</div>
-          <div class="tip">Used alongside bust height for accurate dart manipulation in Clo3D.</div>
-        </div>
-
-        <div class="measurement-card">
-          <div class="name">↕ Outseam</div>
-          <div class="how">From the natural waist, down the outer side of the leg to the floor.</div>
-          <div class="tip">For trousers and skirts. Compare to inseam to determine crotch depth.</div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Reference table -->
+    <!-- Measurement Profiles -->
     <div class="section">
       <h3>Measurement Profiles</h3>
-      <p style="font-family:sans-serif;font-size:0.88rem;color:#888;margin-bottom:16px;">Fill in your measurements and save them as a named profile. Data is stored in your browser.</p>
+      <p style="font-family:sans-serif;font-size:0.88rem;color:#888;margin-bottom:16px;">Fill in measurements and save as a named profile. Data is stored in your browser.</p>
 
       <!-- Profile controls -->
       <div class="profile-bar">
@@ -525,32 +673,64 @@
           <option value="">— select —</option>
         </select>
         <label>Save as</label>
-        <input type="text" id="profileName" placeholder="e.g. My measurements" />
+        <input type="text" id="profileName" placeholder="e.g. Jane" />
         <button class="btn btn-save" onclick="saveProfile()">Save</button>
         <button class="btn btn-delete" onclick="deleteProfile()">Delete</button>
+        <div style="margin-left:auto;display:flex;gap:8px;">
+          <button class="btn btn-delete" onclick="exportProfiles()">⬇ Export</button>
+          <label class="btn btn-delete" style="cursor:pointer;">⬆ Import<input type="file" accept=".json" onchange="importProfiles(event)" style="display:none;"></label>
+        </div>
       </div>
 
+      <!-- Measurements table -->
       <table>
         <thead>
           <tr>
+            <th>中文</th>
             <th>Measurement</th>
             <th>Value (cm)</th>
-            <th>Notes</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>Bust</td><td><input type="number" step="0.1" id="m_bust" placeholder="e.g. 90"></td><td><input type="text" id="n_bust" placeholder="notes…"></td></tr>
-          <tr><td>Waist</td><td><input type="number" step="0.1" id="m_waist" placeholder="e.g. 72"></td><td><input type="text" id="n_waist" placeholder="notes…"></td></tr>
-          <tr><td>Hip</td><td><input type="number" step="0.1" id="m_hip" placeholder="e.g. 96"></td><td><input type="text" id="n_hip" placeholder="notes…"></td></tr>
-          <tr><td>Shoulder width</td><td><input type="number" step="0.1" id="m_shoulder" placeholder="e.g. 38"></td><td><input type="text" id="n_shoulder" placeholder="notes…"></td></tr>
-          <tr><td>Back length</td><td><input type="number" step="0.1" id="m_back_length" placeholder="e.g. 41"></td><td><input type="text" id="n_back_length" placeholder="notes…"></td></tr>
-          <tr><td>Inseam</td><td><input type="number" step="0.1" id="m_inseam" placeholder="e.g. 76"></td><td><input type="text" id="n_inseam" placeholder="notes…"></td></tr>
-          <tr><td>Neck circumference</td><td><input type="number" step="0.1" id="m_neck" placeholder="e.g. 36"></td><td><input type="text" id="n_neck" placeholder="notes…"></td></tr>
-          <tr><td>Bust height</td><td><input type="number" step="0.1" id="m_bust_height" placeholder="e.g. 26"></td><td><input type="text" id="n_bust_height" placeholder="notes…"></td></tr>
-          <tr><td>Bust span</td><td><input type="number" step="0.1" id="m_bust_span" placeholder="e.g. 18"></td><td><input type="text" id="n_bust_span" placeholder="notes…"></td></tr>
-          <tr><td>Outseam</td><td><input type="number" step="0.1" id="m_outseam" placeholder="e.g. 100"></td><td><input type="text" id="n_outseam" placeholder="notes…"></td></tr>
+          <tr style="background:#f7f4ef;"><td colspan="3" style="font-family:sans-serif;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:#aaa;padding:8px 14px;">Lengths — 直</td></tr>
+          <tr><td style="color:#888;font-family:sans-serif;font-size:0.85rem;">胸高</td><td>Breast Length</td><td><input type="number" step="0.1" id="m_breast_length" placeholder="cm"></td></tr>
+          <tr><td style="color:#888;font-family:sans-serif;font-size:0.85rem;">腰長</td><td>Waist Length</td><td><input type="number" step="0.1" id="m_waist_length" placeholder="cm"></td></tr>
+          <tr><td style="color:#888;font-family:sans-serif;font-size:0.85rem;">臀長</td><td>Hip Length</td><td><input type="number" step="0.1" id="m_hip_length" placeholder="cm"></td></tr>
+          <tr><td style="color:#888;font-family:sans-serif;font-size:0.85rem;">衫長</td><td>Blouse Length</td><td><input type="number" step="0.1" id="m_blouse_length" placeholder="cm"></td></tr>
+          <tr><td style="color:#888;font-family:sans-serif;font-size:0.85rem;">裙長</td><td>Dress Length</td><td><input type="number" step="0.1" id="m_dress_length" placeholder="cm"></td></tr>
+          <tr><td style="color:#888;font-family:sans-serif;font-size:0.85rem;">半截裙長</td><td>Skirt Length</td><td><input type="number" step="0.1" id="m_skirt_length" placeholder="cm"></td></tr>
+
+          <tr style="background:#f7f4ef;"><td colspan="3" style="font-family:sans-serif;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:#aaa;padding:8px 14px;">Widths — 寬</td></tr>
+          <tr><td style="color:#888;font-family:sans-serif;font-size:0.85rem;">肩寬</td><td>Shoulder</td><td><input type="number" step="0.1" id="m_shoulder" placeholder="cm"></td></tr>
+          <tr><td style="color:#888;font-family:sans-serif;font-size:0.85rem;">後寬</td><td>Back</td><td><input type="number" step="0.1" id="m_back" placeholder="cm"></td></tr>
+          <tr><td style="color:#888;font-family:sans-serif;font-size:0.85rem;">前寬</td><td>Front</td><td><input type="number" step="0.1" id="m_front" placeholder="cm"></td></tr>
+          <tr><td style="color:#888;font-family:sans-serif;font-size:0.85rem;">乳寬</td><td>Breast Distance</td><td><input type="number" step="0.1" id="m_breast_distance" placeholder="cm"></td></tr>
+          <tr><td style="color:#888;font-family:sans-serif;font-size:0.85rem;">腋寬</td><td>Arm Hole</td><td><input type="number" step="0.1" id="m_arm_hole" placeholder="cm"></td></tr>
+          <tr><td style="color:#888;font-family:sans-serif;font-size:0.85rem;">領寬</td><td>Collar Width</td><td><input type="number" step="0.1" id="m_collar_width" placeholder="cm"></td></tr>
+          <tr><td style="color:#888;font-family:sans-serif;font-size:0.85rem;">領高</td><td>Collar Height</td><td><input type="number" step="0.1" id="m_collar_height" placeholder="cm"></td></tr>
+
+          <tr style="background:#f7f4ef;"><td colspan="3" style="font-family:sans-serif;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:#aaa;padding:8px 14px;">Circumferences — 圍</td></tr>
+          <tr><td style="color:#888;font-family:sans-serif;font-size:0.85rem;">胸圍</td><td>Bust / Breast</td><td><input type="number" step="0.1" id="m_bust" placeholder="cm"></td></tr>
+          <tr><td style="color:#888;font-family:sans-serif;font-size:0.85rem;">腰圍</td><td>Waist</td><td><input type="number" step="0.1" id="m_waist" placeholder="cm"></td></tr>
+          <tr><td style="color:#888;font-family:sans-serif;font-size:0.85rem;">坐圍</td><td>Hip</td><td><input type="number" step="0.1" id="m_hip" placeholder="cm"></td></tr>
+          <tr><td style="color:#888;font-family:sans-serif;font-size:0.85rem;">腹圍</td><td>Abdomen</td><td><input type="number" step="0.1" id="m_abdomen" placeholder="cm"></td></tr>
+
+          <tr style="background:#f7f4ef;"><td colspan="3" style="font-family:sans-serif;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:#aaa;padding:8px 14px;">Sleeves — 袖</td></tr>
+          <tr><td style="color:#888;font-family:sans-serif;font-size:0.85rem;">袖山</td><td>Arm Width</td><td><input type="number" step="0.1" id="m_arm_width" placeholder="cm"></td></tr>
+          <tr><td style="color:#888;font-family:sans-serif;font-size:0.85rem;">袖大</td><td>Sleeve Width</td><td><input type="number" step="0.1" id="m_sleeve_width" placeholder="cm"></td></tr>
+          <tr><td style="color:#888;font-family:sans-serif;font-size:0.85rem;">袖長</td><td>Sleeve Length</td><td><input type="number" step="0.1" id="m_sleeve_length" placeholder="cm"></td></tr>
+          <tr><td style="color:#888;font-family:sans-serif;font-size:0.85rem;">袖口</td><td>Cuff</td><td><input type="number" step="0.1" id="m_cuff" placeholder="cm"></td></tr>
+
+          <tr style="background:#f7f4ef;"><td colspan="3" style="font-family:sans-serif;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:#aaa;padding:8px 14px;">Pants — 褲</td></tr>
+          <tr><td style="color:#888;font-family:sans-serif;font-size:0.85rem;">祆頭</td><td>Waist Width</td><td><input type="number" step="0.1" id="m_waist_width" placeholder="cm"></td></tr>
+          <tr><td style="color:#888;font-family:sans-serif;font-size:0.85rem;">比寬</td><td>Thigh</td><td><input type="number" step="0.1" id="m_thigh" placeholder="cm"></td></tr>
+          <tr><td style="color:#888;font-family:sans-serif;font-size:0.85rem;">浪深</td><td>Crotch</td><td><input type="number" step="0.1" id="m_crotch" placeholder="cm"></td></tr>
+          <tr><td style="color:#888;font-family:sans-serif;font-size:0.85rem;">祆長</td><td>Outseam</td><td><input type="number" step="0.1" id="m_outseam" placeholder="cm"></td></tr>
+          <tr><td style="color:#888;font-family:sans-serif;font-size:0.85rem;">袴長</td><td>Inseam</td><td><input type="number" step="0.1" id="m_inseam" placeholder="cm"></td></tr>
+          <tr><td style="color:#888;font-family:sans-serif;font-size:0.85rem;">腳寬</td><td>Pant Ankle</td><td><input type="number" step="0.1" id="m_pant_ankle" placeholder="cm"></td></tr>
         </tbody>
       </table>
+
     </div>
 
   </div>
@@ -562,7 +742,14 @@
   </footer>
 
   <script>
-    const FIELDS = ['bust','waist','hip','shoulder','back_length','inseam','neck','bust_height','bust_span','outseam'];
+    const FIELDS = [
+      'breast_length','waist_length','hip_length','blouse_length','dress_length','skirt_length',
+      'shoulder','back','front','breast_distance','arm_hole','collar_width','collar_height',
+      'bust','waist','hip','abdomen',
+      'arm_width','sleeve_width','sleeve_length','cuff',
+      'waist_width','thigh','crotch','outseam','inseam','pant_ankle'
+    ];
+    const INFO_FIELDS = [];
     const STORAGE_KEY = 'sewing_profiles';
 
     function getProfiles() {
@@ -576,13 +763,12 @@
     function refreshSelect(selectName) {
       const sel = document.getElementById('profileSelect');
       const profiles = getProfiles();
-      const current = sel.value;
       sel.innerHTML = '<option value="">— select —</option>';
       Object.keys(profiles).sort().forEach(name => {
         const opt = document.createElement('option');
         opt.value = name;
         opt.textContent = name;
-        if (name === (selectName || current)) opt.selected = true;
+        if (name === selectName) opt.selected = true;
         sel.appendChild(opt);
       });
     }
@@ -592,10 +778,8 @@
       if (!name) { showToast('Enter a profile name first'); return; }
       const profiles = getProfiles();
       const data = {};
-      FIELDS.forEach(f => {
-        data['m_' + f] = document.getElementById('m_' + f).value;
-        data['n_' + f] = document.getElementById('n_' + f).value;
-      });
+      FIELDS.forEach(f => { data['m_' + f] = document.getElementById('m_' + f).value; });
+      INFO_FIELDS.forEach(f => { data['i_' + f] = document.getElementById('i_' + f).value; });
       profiles[name] = data;
       saveProfiles(profiles);
       refreshSelect(name);
@@ -607,10 +791,8 @@
       if (!name) return;
       const profiles = getProfiles();
       const data = profiles[name] || {};
-      FIELDS.forEach(f => {
-        document.getElementById('m_' + f).value = data['m_' + f] || '';
-        document.getElementById('n_' + f).value = data['n_' + f] || '';
-      });
+      FIELDS.forEach(f => { document.getElementById('m_' + f).value = data['m_' + f] || ''; });
+      INFO_FIELDS.forEach(f => { document.getElementById('i_' + f).value = data['i_' + f] || ''; });
       document.getElementById('profileName').value = name;
       showToast('Loaded "' + name + '"');
     }
@@ -623,10 +805,8 @@
       delete profiles[name];
       saveProfiles(profiles);
       refreshSelect('');
-      FIELDS.forEach(f => {
-        document.getElementById('m_' + f).value = '';
-        document.getElementById('n_' + f).value = '';
-      });
+      FIELDS.forEach(f => { document.getElementById('m_' + f).value = ''; });
+      INFO_FIELDS.forEach(f => { document.getElementById('i_' + f).value = ''; });
       document.getElementById('profileName').value = '';
       showToast('Deleted "' + name + '"');
     }
@@ -638,7 +818,37 @@
       setTimeout(() => t.classList.remove('show'), 2200);
     }
 
-    // Init
+    function exportProfiles() {
+      const profiles = getProfiles();
+      if (Object.keys(profiles).length === 0) { showToast('No profiles to export'); return; }
+      const blob = new Blob([JSON.stringify(profiles, null, 2)], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'measurement-profiles.json';
+      a.click();
+      showToast('Exported profiles');
+    }
+
+    function importProfiles(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const imported = JSON.parse(e.target.result);
+          const existing = getProfiles();
+          const merged = Object.assign({}, existing, imported);
+          saveProfiles(merged);
+          refreshSelect('');
+          showToast('Imported ' + Object.keys(imported).length + ' profile(s)');
+        } catch {
+          showToast('Invalid file — please use an exported .json');
+        }
+      };
+      reader.readAsText(file);
+      event.target.value = '';
+    }
+
     refreshSelect('');
   </script>
 
