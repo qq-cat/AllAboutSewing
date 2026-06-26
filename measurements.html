@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Body Measurements — Garment Making</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: #faf9f7;
+      color: #2c2c2c;
+      line-height: 1.7;
+    }
+
+    header {
+      background: #2c2c2c;
+      color: #faf9f7;
+      padding: 48px 32px 40px;
+      text-align: center;
+    }
+
+    header h1 { font-size: 2.2rem; letter-spacing: 0.04em; margin-bottom: 8px; }
+    header p { font-size: 1rem; opacity: 0.7; font-style: italic; }
+
+    nav {
+      background: #fff;
+      border-bottom: 1px solid #e8e4de;
+      padding: 0 32px;
+      display: flex;
+      gap: 0;
+      justify-content: center;
+    }
+
+    nav a {
+      display: block;
+      padding: 16px 20px;
+      text-decoration: none;
+      color: #555;
+      font-family: sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-bottom: 3px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    nav a:hover, nav a.active {
+      color: #2c2c2c;
+      border-bottom-color: #c9a96e;
+    }
+
+    .page-intro {
+      max-width: 720px;
+      margin: 52px auto 40px;
+      padding: 0 32px;
+    }
+
+    .page-intro h2 { font-size: 1.6rem; margin-bottom: 12px; }
+    .page-intro p { color: #666; font-size: 1rem; }
+
+    .tip-box {
+      background: #fff8ee;
+      border-left: 4px solid #c9a96e;
+      padding: 16px 20px;
+      margin-top: 20px;
+      border-radius: 0 4px 4px 0;
+      font-family: sans-serif;
+      font-size: 0.9rem;
+      color: #5a4a2a;
+    }
+
+    .content {
+      max-width: 960px;
+      margin: 0 auto 80px;
+      padding: 0 32px;
+    }
+
+    .section {
+      margin-bottom: 60px;
+    }
+
+    .section h3 {
+      font-size: 1.2rem;
+      margin-bottom: 24px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e8e4de;
+      color: #2c2c2c;
+    }
+
+    .measurements-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 640px) {
+      .measurements-grid { grid-template-columns: 1fr; }
+      .diagram-layout { flex-direction: column !important; }
+    }
+
+    .measurement-card {
+      background: #fff;
+      border: 1px solid #e8e4de;
+      border-radius: 6px;
+      padding: 20px 22px;
+    }
+
+    .measurement-card .name {
+      font-weight: bold;
+      font-size: 1rem;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .measurement-card .number {
+      display: inline-block;
+      width: 22px;
+      height: 22px;
+      background: #c9a96e;
+      color: #fff;
+      border-radius: 50%;
+      font-size: 0.7rem;
+      font-family: sans-serif;
+      font-weight: bold;
+      line-height: 22px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .measurement-card .how {
+      font-family: sans-serif;
+      font-size: 0.88rem;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    .measurement-card .tip {
+      font-family: sans-serif;
+      font-size: 0.8rem;
+      color: #c9a96e;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    .diagram-layout {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    .diagram-layout svg {
+      flex-shrink: 0;
+    }
+
+    .diagram-layout .legend {
+      flex: 1;
+      font-family: sans-serif;
+      font-size: 0.88rem;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    .legend-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #c9a96e;
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .tools-list {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .tool-item {
+      background: #fff;
+      border: 1px solid #e8e4de;
+      border-radius: 6px;
+      padding: 14px 18px;
+      font-family: sans-serif;
+      font-size: 0.88rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tool-item .icon { font-size: 1.3rem; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: sans-serif;
+      font-size: 0.88rem;
+      margin-top: 16px;
+    }
+
+    th {
+      text-align: left;
+      padding: 10px 14px;
+      background: #f0ede8;
+      color: #555;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #eee;
+      color: #444;
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #fdf9f3; }
+
+    footer {
+      text-align: center;
+      padding: 32px;
+      font-family: sans-serif;
+      font-size: 0.8rem;
+      color: #aaa;
+      border-top: 1px solid #e8e4de;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Garment Making</h1>
+    <p>A personal learning journal — patterns, fabrics, and 3D design</p>
+  </header>
+
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="measurements.html" class="active">Measurements</a>
+    <a href="clo3d/basics.html">Clo3D</a>
+    <a href="pattern-making/notes.html">Patterns</a>
+    <a href="fabrics/notes.html">Fabrics</a>
+    <a href="sewing-techniques/notes.html">Techniques</a>
+    <a href="resources.html">Resources</a>
+  </nav>
+
+  <div class="page-intro">
+    <h2>📐 Body Measurements</h2>
+    <p>Accurate measurements are the foundation of a well-fitting garment. Take them wearing form-fitting undergarments, standing naturally, with a helper if possible.</p>
+    <div class="tip-box">
+      💡 <strong>Golden rule:</strong> keep the tape measure snug but not tight — you should be able to slip one finger underneath it.
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- Tools -->
+    <div class="section">
+      <h3>What You Need</h3>
+      <div class="tools-list">
+        <div class="tool-item"><span class="icon">📏</span> Flexible tape measure</div>
+        <div class="tool-item"><span class="icon">🖊️</span> Pen and paper (or phone)</div>
+        <div class="tool-item"><span class="icon">🪞</span> Full-length mirror</div>
+        <div class="tool-item"><span class="icon">🧍</span> A helper (ideal)</div>
+        <div class="tool-item"><span class="icon">👙</span> Form-fitting undergarments</div>
+      </div>
+    </div>
+
+    <!-- Diagram + legend -->
+    <div class="section">
+      <h3>Measurement Points at a Glance</h3>
+      <div class="diagram-layout">
+
+        <!-- SVG body diagram -->
+        <svg width="220" height="460" viewBox="0 0 220 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Body silhouette -->
+          <ellipse cx="110" cy="44" rx="28" ry="32" fill="#e8e4de"/>
+          <!-- Neck -->
+          <rect x="101" y="72" width="18" height="14" rx="4" fill="#e8e4de"/>
+          <!-- Torso -->
+          <path d="M68 86 Q60 100 58 130 Q54 165 60 190 Q66 210 70 230 L150 230 Q154 210 160 190 Q166 165 162 130 Q160 100 152 86 Q130 78 110 78 Q90 78 68 86Z" fill="#e8e4de"/>
+          <!-- Hips -->
+          <path d="M70 230 Q60 250 58 270 Q56 290 62 300 L158 300 Q164 290 162 270 Q160 250 150 230Z" fill="#d8d4ce"/>
+          <!-- Legs -->
+          <rect x="70" y="298" width="34" height="140" rx="10" fill="#d8d4ce"/>
+          <rect x="116" y="298" width="34" height="140" rx="10" fill="#d8d4ce"/>
+
+          <!-- Measurement lines -->
+          <!-- 1. Bust -->
+          <line x1="48" y1="118" x2="172" y2="118" stroke="#c9a96e" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <circle cx="42" cy="118" r="10" fill="#c9a96e"/>
+          <text x="42" y="122" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="sans-serif">1</text>
+
+          <!-- 2. Waist -->
+          <line x1="52" y1="160" x2="168" y2="160" stroke="#c9a96e" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <circle cx="46" cy="160" r="10" fill="#c9a96e"/>
+          <text x="46" y="164" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="sans-serif">2</text>
+
+          <!-- 3. Hip -->
+          <line x1="48" y1="210" x2="172" y2="210" stroke="#c9a96e" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <circle cx="42" cy="210" r="10" fill="#c9a96e"/>
+          <text x="42" y="214" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="sans-serif">3</text>
+
+          <!-- 4. Shoulder width -->
+          <line x1="68" y1="90" x2="152" y2="90" stroke="#c9a96e" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <circle cx="178" cy="90" r="10" fill="#c9a96e"/>
+          <text x="178" y="94" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="sans-serif">4</text>
+
+          <!-- 5. Back length -->
+          <line x1="164" y1="90" x2="164" y2="230" stroke="#c9a96e" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <circle cx="178" cy="160" r="10" fill="#c9a96e"/>
+          <text x="178" y="164" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="sans-serif">5</text>
+
+          <!-- 6. Inseam -->
+          <line x1="87" y1="298" x2="87" y2="438" stroke="#c9a96e" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <circle cx="42" cy="370" r="10" fill="#c9a96e"/>
+          <text x="42" y="374" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="sans-serif">6</text>
+
+          <!-- 7. Neck -->
+          <ellipse cx="110" cy="80" rx="16" ry="6" stroke="#c9a96e" stroke-width="1.5" stroke-dasharray="4,3" fill="none"/>
+          <circle cx="178" cy="80" r="10" fill="#c9a96e"/>
+          <text x="178" y="84" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="sans-serif">7</text>
+        </svg>
+
+        <!-- Legend -->
+        <div class="legend">
+          <div class="legend-item"><div class="legend-dot">1</div> <span><strong>Bust</strong> — fullest part of the chest</span></div>
+          <div class="legend-item"><div class="legend-dot">2</div> <span><strong>Waist</strong> — narrowest part of the torso</span></div>
+          <div class="legend-item"><div class="legend-dot">3</div> <span><strong>Hip</strong> — fullest part of the hips, ~20cm below waist</span></div>
+          <div class="legend-item"><div class="legend-dot">4</div> <span><strong>Shoulder width</strong> — across the back, shoulder to shoulder</span></div>
+          <div class="legend-item"><div class="legend-dot">5</div> <span><strong>Back length</strong> — nape of neck to natural waist</span></div>
+          <div class="legend-item"><div class="legend-dot">6</div> <span><strong>Inseam</strong> — crotch to floor</span></div>
+          <div class="legend-item"><div class="legend-dot">7</div> <span><strong>Neck</strong> — circumference around the base of the neck</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Detailed cards -->
+    <div class="section">
+      <h3>How to Take Each Measurement</h3>
+      <div class="measurements-grid">
+
+        <div class="measurement-card">
+          <div class="name"><span class="number">1</span> Bust / Chest</div>
+          <div class="how">Wrap the tape around the fullest part of the chest, keeping it parallel to the floor. Breathe normally — don't expand or contract.</div>
+          <div class="tip">For tops, jackets, and dresses.</div>
+        </div>
+
+        <div class="measurement-card">
+          <div class="name"><span class="number">2</span> Waist</div>
+          <div class="how">Find your natural waist by bending side to side — it's the crease that forms. Measure around that point, keeping the tape comfortably snug.</div>
+          <div class="tip">Typically 2–3 cm above the belly button.</div>
+        </div>
+
+        <div class="measurement-card">
+          <div class="name"><span class="number">3</span> Hip</div>
+          <div class="how">Stand with feet together. Measure around the fullest part of the hips and seat, usually about 18–23 cm below the natural waist.</div>
+          <div class="tip">Note how far below the waist your hip fullness falls — useful for skirt and trouser fitting.</div>
+        </div>
+
+        <div class="measurement-card">
+          <div class="name"><span class="number">4</span> Shoulder Width</div>
+          <div class="how">Measure across the upper back from the point of one shoulder to the other (where the shoulder seam would sit), in a straight line.</div>
+          <div class="tip">Best taken with a helper for accuracy.</div>
+        </div>
+
+        <div class="measurement-card">
+          <div class="name"><span class="number">5</span> Back Length</div>
+          <div class="how">From the most prominent vertebra at the nape of the neck, straight down the center back to the natural waist.</div>
+          <div class="tip">Used for bodice blocks and dress patterns.</div>
+        </div>
+
+        <div class="measurement-card">
+          <div class="name"><span class="number">6</span> Inseam</div>
+          <div class="how">Stand straight. Measure from the crotch seam (inner thigh) down to the floor. Easier with a helper or by measuring a well-fitting pair of trousers.</div>
+          <div class="tip">For trousers and jeans. Note if you want ankle, midi, or full-length.</div>
+        </div>
+
+        <div class="measurement-card">
+          <div class="name"><span class="number">7</span> Neck Circumference</div>
+          <div class="how">Wrap the tape around the base of the neck. Keep one finger between the tape and neck for ease.</div>
+          <div class="tip">Used for collars and necklines.</div>
+        </div>
+
+        <div class="measurement-card">
+          <div class="name">↕ Bust Height</div>
+          <div class="how">From the shoulder (at the neckline) straight down to the bust point (nipple level). Taken vertically down the front of the body.</div>
+          <div class="tip">Used for dart placement in bodice patterns.</div>
+        </div>
+
+        <div class="measurement-card">
+          <div class="name">↔ Bust Span</div>
+          <div class="how">The horizontal distance between the two bust points (nipple to nipple).</div>
+          <div class="tip">Used alongside bust height for accurate dart manipulation in Clo3D.</div>
+        </div>
+
+        <div class="measurement-card">
+          <div class="name">↕ Outseam</div>
+          <div class="how">From the natural waist, down the outer side of the leg to the floor.</div>
+          <div class="tip">For trousers and skirts. Compare to inseam to determine crotch depth.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Reference table -->
+    <div class="section">
+      <h3>Measurement Record</h3>
+      <p style="font-family:sans-serif;font-size:0.88rem;color:#888;margin-bottom:16px;">Fill in your own measurements here (or keep a copy in a spreadsheet).</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Measurement</th>
+            <th>My measurement (cm)</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Bust</td><td></td><td></td></tr>
+          <tr><td>Waist</td><td></td><td></td></tr>
+          <tr><td>Hip</td><td></td><td></td></tr>
+          <tr><td>Shoulder width</td><td></td><td></td></tr>
+          <tr><td>Back length</td><td></td><td></td></tr>
+          <tr><td>Inseam</td><td></td><td></td></tr>
+          <tr><td>Neck circumference</td><td></td><td></td></tr>
+          <tr><td>Bust height</td><td></td><td></td></tr>
+          <tr><td>Bust span</td><td></td><td></td></tr>
+          <tr><td>Outseam</td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <footer>
+    Personal learning notes &mdash; updated as I go &nbsp;|&nbsp; <a href="../index.html" style="color:#c9a96e;">← Back to home</a>
+  </footer>
+
+</body>
+</html>
