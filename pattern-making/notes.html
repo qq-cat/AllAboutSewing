@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patterns — Garment Making</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: #faf9f7;
+      color: #2c2c2c;
+      line-height: 1.7;
+    }
+
+    header {
+      background: #2c2c2c;
+      color: #faf9f7;
+      padding: 48px 32px 40px;
+      text-align: center;
+    }
+    header h1 { font-size: 2.2rem; letter-spacing: 0.04em; margin-bottom: 8px; }
+    header p { font-size: 1rem; opacity: 0.7; font-style: italic; }
+
+    nav {
+      background: #fff;
+      border-bottom: 1px solid #e8e4de;
+      padding: 0 32px;
+      display: flex;
+      justify-content: center;
+    }
+    nav a {
+      display: block;
+      padding: 16px 20px;
+      text-decoration: none;
+      color: #555;
+      font-family: sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-bottom: 3px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    nav a:hover, nav a.active { color: #2c2c2c; border-bottom-color: #c9a96e; }
+
+    .page-intro {
+      max-width: 860px;
+      margin: 52px auto 16px;
+      padding: 0 32px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .page-intro h2 { font-size: 1.6rem; margin-bottom: 6px; }
+    .page-intro p { color: #666; font-size: 0.95rem; font-family: sans-serif; }
+
+    .toolbar {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .btn {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      font-family: sans-serif;
+      font-size: 0.82rem;
+      cursor: pointer;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      transition: opacity 0.15s;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn-gold { background: #c9a96e; color: #fff; }
+    .btn-light { background: #f0ede8; color: #666; }
+
+    .content {
+      max-width: 860px;
+      margin: 0 auto 80px;
+      padding: 0 32px;
+    }
+
+    /* Section */
+    .section {
+      margin-bottom: 8px;
+      border: 1px solid #e8e4de;
+      border-radius: 8px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      padding: 18px 22px;
+      cursor: pointer;
+      user-select: none;
+      gap: 12px;
+    }
+    .section-header:hover { background: #fdf9f3; }
+
+    .section-icon { font-size: 1.3rem; }
+
+    .section-title {
+      flex: 1;
+    }
+    .section-title h3 { font-size: 1.05rem; margin-bottom: 2px; }
+    .section-title span {
+      font-family: sans-serif;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+
+    .section-chevron {
+      font-family: sans-serif;
+      font-size: 0.8rem;
+      color: #bbb;
+      transition: transform 0.2s;
+    }
+    .section.open .section-chevron { transform: rotate(180deg); }
+
+    .section-body {
+      display: none;
+      padding: 0 22px 20px;
+      border-top: 1px solid #f0ede8;
+    }
+    .section.open .section-body { display: block; }
+
+    /* Pattern cards */
+    .patterns-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .pattern-card {
+      border: 1px solid #e8e4de;
+      border-radius: 6px;
+      padding: 16px 18px;
+      background: #faf9f7;
+      position: relative;
+    }
+
+    .pattern-card .card-name {
+      font-size: 0.98rem;
+      font-weight: bold;
+      margin-bottom: 4px;
+      padding-right: 40px;
+    }
+
+    .pattern-card .card-difficulty {
+      display: inline-block;
+      font-family: sans-serif;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 2px 8px;
+      border-radius: 10px;
+      margin-bottom: 8px;
+    }
+    .diff-beginner { background: #e8f5e9; color: #388e3c; }
+    .diff-intermediate { background: #fff8e1; color: #f57c00; }
+    .diff-advanced { background: #fce4ec; color: #c62828; }
+
+    .pattern-card .card-notes {
+      font-family: sans-serif;
+      font-size: 0.83rem;
+      color: #666;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .pattern-card .card-link a {
+      font-family: sans-serif;
+      font-size: 0.8rem;
+      color: #c9a96e;
+      text-decoration: none;
+      word-break: break-all;
+    }
+    .pattern-card .card-link a:hover { text-decoration: underline; }
+
+    .pattern-card .card-date {
+      font-family: sans-serif;
+      font-size: 0.74rem;
+      color: #ccc;
+      margin-top: 8px;
+    }
+
+    .card-actions {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      display: flex;
+      gap: 4px;
+      opacity: 0;
+      transition: opacity 0.15s;
+    }
+    .pattern-card:hover .card-actions { opacity: 1; }
+
+    .card-btn {
+      background: none;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 2px 7px;
+      font-size: 0.72rem;
+      font-family: sans-serif;
+      cursor: pointer;
+      color: #888;
+      transition: background 0.15s;
+    }
+    .card-btn:hover { background: #f0ede8; }
+    .card-btn.del:hover { background: #fce4ec; color: #c62828; border-color: #f8bbd0; }
+
+    .add-pattern-btn {
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: none;
+      border: 1px dashed #d0ccc7;
+      border-radius: 6px;
+      padding: 12px 18px;
+      width: 100%;
+      cursor: pointer;
+      font-family: sans-serif;
+      font-size: 0.85rem;
+      color: #aaa;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .add-pattern-btn:hover { border-color: #c9a96e; color: #c9a96e; }
+
+    .empty-state {
+      font-family: sans-serif;
+      font-size: 0.85rem;
+      color: #bbb;
+      padding: 12px 0 4px;
+      font-style: italic;
+    }
+
+    /* Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-overlay.open { display: flex; }
+
+    .modal {
+      background: #fff;
+      border-radius: 8px;
+      padding: 32px;
+      width: 100%;
+      max-width: 480px;
+      margin: 16px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+    }
+
+    .modal h4 {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+
+    .field {
+      margin-bottom: 16px;
+    }
+    .field label {
+      display: block;
+      font-family: sans-serif;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #888;
+      margin-bottom: 6px;
+    }
+    .field input, .field textarea, .field select {
+      width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 8px 12px;
+      font-family: sans-serif;
+      font-size: 0.88rem;
+      color: #2c2c2c;
+      background: #faf9f7;
+      transition: border-color 0.2s;
+    }
+    .field input:focus, .field textarea:focus, .field select:focus {
+      outline: none;
+      border-color: #c9a96e;
+      background: #fff;
+    }
+    .field textarea { resize: vertical; min-height: 80px; }
+
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+      margin-top: 24px;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #2c2c2c;
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 20px;
+      font-family: sans-serif;
+      font-size: 0.85rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      z-index: 999;
+    }
+    .toast.show { opacity: 1; }
+
+    footer {
+      text-align: center;
+      padding: 32px;
+      font-family: sans-serif;
+      font-size: 0.8rem;
+      color: #aaa;
+      border-top: 1px solid #e8e4de;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Garment Making</h1>
+    <p>A personal learning journal — patterns, fabrics, and 3D design</p>
+  </header>
+
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="../measurements.html">Measurements</a>
+    <a href="../clo3d/basics.html">Clo3D</a>
+    <a href="notes.html" class="active">Patterns</a>
+    <a href="../fabrics/notes.html">Fabrics</a>
+    <a href="../sewing-techniques/notes.html">Techniques</a>
+    <a href="../resources.html">Resources</a>
+  </nav>
+
+  <div class="page-intro">
+    <div>
+      <h2>✏️ Pattern Library</h2>
+      <p>Add patterns as you learn. Organised by garment type — saved in your browser.</p>
+    </div>
+    <div class="toolbar">
+      <button class="btn btn-light" onclick="exportPatterns()">⬇ Export</button>
+      <label class="btn btn-light" style="cursor:pointer;">⬆ Import<input type="file" accept=".json" onchange="importPatterns(event)" style="display:none;"></label>
+    </div>
+  </div>
+
+  <div class="content" id="sections-container">
+    <!-- Sections rendered by JS -->
+  </div>
+
+  <!-- Add / Edit Modal -->
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <h4 id="modal-title">Add Pattern</h4>
+      <div class="field">
+        <label>Pattern Name *</label>
+        <input type="text" id="f-name" placeholder="e.g. Basic Bodice Block" />
+      </div>
+      <div class="field">
+        <label>Difficulty</label>
+        <select id="f-difficulty">
+          <option value="beginner">Beginner</option>
+          <option value="intermediate">Intermediate</option>
+          <option value="advanced">Advanced</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Source / Reference</label>
+        <input type="text" id="f-source" placeholder="Book title, YouTube URL, or website" />
+      </div>
+      <div class="field">
+        <label>Notes</label>
+        <textarea id="f-notes" placeholder="Key steps, tips, things to remember…"></textarea>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-light" onclick="closeModal()">Cancel</button>
+        <button class="btn btn-gold" onclick="savePattern()">Save Pattern</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <footer>
+    Personal learning notes &mdash; updated as I go &nbsp;|&nbsp;
+    <a href="../index.html" style="color:#c9a96e;">← Back to home</a>
+  </footer>
+
+  <script>
+    const STORAGE_KEY = 'sewing_patterns';
+
+    const SECTIONS = [
+      { id: 'bodice',    icon: '👗', title: '上衣 Bodice & Blouse',   sub: 'Tops, shirts, bodice blocks' },
+      { id: 'qipao',    icon: '🏮', title: '旗袍 Qipao / Cheongsam', sub: 'Traditional Chinese dress' },
+      { id: 'dress',    icon: '👘', title: '連身裙 Dress',            sub: 'Full-length and midi dresses' },
+      { id: 'skirt',    icon: '🪡', title: '裙 Skirt',               sub: 'A-line, pencil, circle, wrap' },
+      { id: 'trousers', icon: '👖', title: '褲 Trousers & Pants',    sub: 'Slacks, jeans, shorts' },
+      { id: 'jacket',   icon: '🧥', title: '外套 Jacket & Coat',     sub: 'Blazers, coats, outerwear' },
+      { id: 'sleeve',   icon: '✂️', title: '袖 Sleeves',             sub: 'Set-in, raglan, bishop' },
+      { id: 'other',    icon: '📐', title: 'Other',                  sub: 'Accessories, misc patterns' },
+    ];
+
+    let editingSection = null;
+    let editingIndex = null;
+
+    function getData() {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    }
+
+    function saveData(data) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    }
+
+    function render() {
+      const data = getData();
+      const container = document.getElementById('sections-container');
+      container.innerHTML = '';
+
+      SECTIONS.forEach(sec => {
+        const patterns = data[sec.id] || [];
+        const div = document.createElement('div');
+        div.className = 'section';
+        div.id = 'sec-' + sec.id;
+
+        div.innerHTML = `
+          <div class="section-header" onclick="toggleSection('${sec.id}')">
+            <span class="section-icon">${sec.icon}</span>
+            <div class="section-title">
+              <h3>${sec.title}</h3>
+              <span>${patterns.length === 0 ? sec.sub : patterns.length + ' pattern' + (patterns.length !== 1 ? 's' : '') + ' · ' + sec.sub}</span>
+            </div>
+            <span class="section-chevron">▼</span>
+          </div>
+          <div class="section-body">
+            ${patterns.length === 0
+              ? '<p class="empty-state">No patterns yet — add your first one below.</p>'
+              : '<div class="patterns-grid">' + patterns.map((p, i) => patternCardHTML(p, sec.id, i)).join('') + '</div>'
+            }
+            <button class="add-pattern-btn" onclick="openModal('${sec.id}')">
+              + Add pattern to ${sec.title.split(' ').slice(-1)[0]}
+            </button>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+
+      // Restore open state
+      const open = JSON.parse(sessionStorage.getItem('open_sections') || '[]');
+      open.forEach(id => {
+        const el = document.getElementById('sec-' + id);
+        if (el) el.classList.add('open');
+      });
+    }
+
+    function patternCardHTML(p, sectionId, index) {
+      const diffClass = 'diff-' + (p.difficulty || 'beginner');
+      const diffLabel = (p.difficulty || 'beginner').charAt(0).toUpperCase() + (p.difficulty || 'beginner').slice(1);
+      const sourceHTML = p.source
+        ? `<div class="card-link"><a href="${isURL(p.source) ? p.source : '#'}" ${isURL(p.source) ? 'target="_blank"' : ''}>${p.source}</a></div>`
+        : '';
+      const notesHTML = p.notes ? `<div class="card-notes">${escHtml(p.notes)}</div>` : '';
+      return `
+        <div class="pattern-card">
+          <div class="card-actions">
+            <button class="card-btn" onclick="openEdit('${sectionId}', ${index})">Edit</button>
+            <button class="card-btn del" onclick="deletePattern('${sectionId}', ${index})">✕</button>
+          </div>
+          <div class="card-name">${escHtml(p.name)}</div>
+          <span class="card-difficulty ${diffClass}">${diffLabel}</span>
+          ${notesHTML}
+          ${sourceHTML}
+          <div class="card-date">${p.date || ''}</div>
+        </div>`;
+    }
+
+    function isURL(s) {
+      return s.startsWith('http://') || s.startsWith('https://');
+    }
+
+    function escHtml(s) {
+      return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    function toggleSection(id) {
+      const el = document.getElementById('sec-' + id);
+      el.classList.toggle('open');
+      const open = SECTIONS.map(s => s.id).filter(sid => {
+        const e = document.getElementById('sec-' + sid);
+        return e && e.classList.contains('open');
+      });
+      sessionStorage.setItem('open_sections', JSON.stringify(open));
+    }
+
+    function openModal(sectionId) {
+      editingSection = sectionId;
+      editingIndex = null;
+      document.getElementById('modal-title').textContent = 'Add Pattern';
+      document.getElementById('f-name').value = '';
+      document.getElementById('f-difficulty').value = 'beginner';
+      document.getElementById('f-source').value = '';
+      document.getElementById('f-notes').value = '';
+      document.getElementById('modal').classList.add('open');
+      document.getElementById('f-name').focus();
+    }
+
+    function openEdit(sectionId, index) {
+      const data = getData();
+      const p = (data[sectionId] || [])[index];
+      if (!p) return;
+      editingSection = sectionId;
+      editingIndex = index;
+      document.getElementById('modal-title').textContent = 'Edit Pattern';
+      document.getElementById('f-name').value = p.name || '';
+      document.getElementById('f-difficulty').value = p.difficulty || 'beginner';
+      document.getElementById('f-source').value = p.source || '';
+      document.getElementById('f-notes').value = p.notes || '';
+      document.getElementById('modal').classList.add('open');
+      document.getElementById('f-name').focus();
+    }
+
+    function closeModal() {
+      document.getElementById('modal').classList.remove('open');
+      editingSection = null;
+      editingIndex = null;
+    }
+
+    function savePattern() {
+      const name = document.getElementById('f-name').value.trim();
+      if (!name) { showToast('Pattern name is required'); return; }
+
+      const pattern = {
+        name,
+        difficulty: document.getElementById('f-difficulty').value,
+        source: document.getElementById('f-source').value.trim(),
+        notes: document.getElementById('f-notes').value.trim(),
+        date: editingIndex !== null ? undefined : new Date().toISOString().slice(0,10),
+      };
+
+      const data = getData();
+      if (!data[editingSection]) data[editingSection] = [];
+
+      if (editingIndex !== null) {
+        pattern.date = (data[editingSection][editingIndex] || {}).date;
+        data[editingSection][editingIndex] = pattern;
+        showToast('Pattern updated');
+      } else {
+        data[editingSection].push(pattern);
+        showToast('Pattern added');
+      }
+
+      saveData(data);
+      // Keep section open after re-render
+      const openSecs = JSON.parse(sessionStorage.getItem('open_sections') || '[]');
+      if (!openSecs.includes(editingSection)) openSecs.push(editingSection);
+      sessionStorage.setItem('open_sections', JSON.stringify(openSecs));
+      closeModal();
+      render();
+    }
+
+    function deletePattern(sectionId, index) {
+      if (!confirm('Delete this pattern?')) return;
+      const data = getData();
+      data[sectionId].splice(index, 1);
+      saveData(data);
+      render();
+      showToast('Pattern deleted');
+    }
+
+    function exportPatterns() {
+      const data = getData();
+      const hasAny = Object.values(data).some(arr => arr.length > 0);
+      if (!hasAny) { showToast('No patterns to export'); return; }
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'patterns.json';
+      a.click();
+      showToast('Exported patterns');
+    }
+
+    function importPatterns(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const imported = JSON.parse(e.target.result);
+          const existing = getData();
+          // Merge: append imported patterns to existing
+          Object.keys(imported).forEach(sec => {
+            if (!existing[sec]) existing[sec] = [];
+            existing[sec] = existing[sec].concat(imported[sec]);
+          });
+          saveData(existing);
+          render();
+          const count = Object.values(imported).reduce((sum, arr) => sum + arr.length, 0);
+          showToast('Imported ' + count + ' pattern(s)');
+        } catch {
+          showToast('Invalid file');
+        }
+      };
+      reader.readAsText(file);
+      event.target.value = '';
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2200);
+    }
+
+    // Close modal on overlay click
+    document.getElementById('modal').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+
+    // Close modal on Escape
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    render();
+  </script>
+
+</body>
+</html>
